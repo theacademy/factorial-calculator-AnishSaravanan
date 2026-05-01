@@ -35,6 +35,23 @@ public class Factorial {
 
 		//YOUR CODE STARTS HERE
 
+		// First, confirms that the next value entered by the user is an integer.
+		// This prevents non-integer input, such as letters or decimals, from being accepted.
+		if (this.scanner.hasNextInt()) {
+			// Store the user's integer input in the instance variable `num`,
+			// as required by the assignment instructions.
+			this.num = this.scanner.nextInt();
+
+			// Only allows integers from 1 through 10, inclusive.
+			// If the number is in that range, return the original input value.
+			if (this.num >= 1 && this.num <= 10) {
+				return this.num;
+			}
+		}
+
+		// If the input is not an integer, or if the integer is outside the
+		// allowed range, print the required error message and return -1.
+		this.printStream.print("Invalid entry. Please enter an integer between 1 and 10, inclusive.");
 		return -1;
 
 		//YOUR CODE ENDS HERE
@@ -54,7 +71,11 @@ public class Factorial {
 		int result = 1;
 		//YOUR CODE STARTS HERE
 
- 
+		// Multiply result by every integer from 1 up to the user's number.
+		// Example: if num is 4, this calculates 1 * 2 * 3 * 4.
+		for (int i = 1; i <= num; i++) {
+			result = result * i;
+		}
 
 		//YOUR CODE ENDS HERE
 		this.printStream.print("The Factorial is: " + result);		
